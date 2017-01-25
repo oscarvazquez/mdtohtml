@@ -6,14 +6,32 @@ with open("README.rst", "rb") as f:
 
 setup(
 	name = "mdtohtml",
-	packages = find_packages(),
+	packages = ["mdtohtml"],
+	install_requires=[
+		'markdown',
+	],
 	entry_points = {
- 			"console_scripts": ["mdtohtml = src.mdtohtml:main"]
+ 			"console_scripts": ["mdtohtml=mdtohtml.mdtohtml:main"]
 		},
-	version = version,
+	version = "0.0.2",
 	description = "Duplicates folder and converts markdown files to html files",
 	long_description = long_descr,
 	author = "Oscar Vazquez",
 	author_email = "oscar.vazquez2012@gmail.com",
-	url = ""
+	url = "https://github.com/oscarvazquez/mdtohtml",
+	license='MIT',	
+	classifiers=[
+		'Development Status :: 3 - Alpha',
+
+		# Indicate who your project is intended for
+		'Intended Audience :: Developers',
+		'Topic :: Software Development :: Build Tools',
+
+		# Pick your license as you wish (should match "license" above)
+		 'License :: OSI Approved :: MIT License',
+
+		'Programming Language :: Python :: 2',
+		'Programming Language :: Python :: 2.6',
+		'Programming Language :: Python :: 2.7'
+	]
 )
