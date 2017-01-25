@@ -4,6 +4,7 @@ from shutil import copyfile
 import markdown
 import errno
 import argparse
+import codecs
 
 Markdown = markdown.Markdown(extensions=['markdown.extensions.fenced_code'])	
 class main:
@@ -39,14 +40,20 @@ class main:
 					destName = os.path.join(dest, file)
 					self.duplicate_directory(sourceName, destName, ignore)
 		else:
-			copyfile(src, dest)
-			self.convertToHtml(dest)
+			if src.endswith('.md'):			
+				copyfile(src, dest)
+				self.convertToHtml(src, dest)
 
-	def convertToHtml(self, dest):
-		f = open(dest, 'r+w')
+	def convertToHtml(self, src, dest):
+		f = codecs.open(dest, mode="r", encoding="utf-8", errors="replace")
 		md = f.read()
-		html = Markdown.reset().convert(md)
-		f.seek(0)
-		f.truncate()
-		f.write(html)
 		f.close()
+		try:
+			html = Markdown.reset().convert(md)
+			output = codecs.open(dest, "w", encoding="utf-8", errors="replace")
+			output.seek(0)
+			output.truncate()
+			output.write(html)
+			output.close()
+		except: 
+			print("Skipping ?", dest)

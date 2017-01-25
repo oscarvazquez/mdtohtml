@@ -13,7 +13,7 @@ setup(
 	entry_points = {
  			"console_scripts": ["mdtohtml=mdtohtml.mdtohtml:main"]
 		},
-	version = "0.0.2",
+	version = "0.1.0",
 	description = "Duplicates folder and converts markdown files to html files",
 	long_description = long_descr,
 	author = "Oscar Vazquez",

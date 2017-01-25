@@ -1,4 +1,6 @@
-<pre><code class="python">print &quot;hello&quot;
+<pre><code class="python">
+print &quot;hello&quot;
+
 </code></pre>
 
 <h1>hello h1</h1>
@@ -7,4 +9,5 @@
 <li>list1</li>
 <li>list2</li>
 <li>list4</li>
+<li>list5</li>
 </ul>
